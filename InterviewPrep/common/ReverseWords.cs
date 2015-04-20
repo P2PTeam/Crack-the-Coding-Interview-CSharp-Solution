@@ -13,7 +13,9 @@ namespace InterviewPrep.common
         {
             String s = "abc  def     zcc";
             Console.WriteLine("[]");
-            Console.WriteLine("["+ReverseWord(s)+"]");
+            var result = ReverseWord2(s);
+                
+            Console.WriteLine("[" + ReverseWord(s) + "]");
             Console.Read();
         }
 
@@ -42,6 +44,42 @@ namespace InterviewPrep.common
                 }
             }
             return result.ToString(0,result.Length-1);
+        }
+
+        //三次翻转
+        static String ReverseWord2(String s)
+        {
+            if (string.IsNullOrWhiteSpace) return s;
+            int len = s.Length;
+            //翻转整个字符串
+            ReverseString(s, 0, len - 1);
+            int i = 0, j = 0;
+            while (i < len - 1 && j < len - 1)
+            {
+                if (result[j] == ' ')
+                {
+                    //翻转每个单词
+                    ReverseString(result, i, j - 1);
+                    j++;
+                    i = j;
+                }
+                else
+                {
+                    j++;
+                }
+            }
+        }
+
+        static String ReverseString(String s,int left,int right)
+        {
+            if(string.IsNullOrWhiteSpace) return s;
+            int len = s.Length;
+            while (left < right)
+            {
+                var t = s[left];
+                s[left++] = s[right];
+                s[right--] = t;
+            }
         }
     }
 }

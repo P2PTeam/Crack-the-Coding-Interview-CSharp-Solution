@@ -16,6 +16,7 @@ namespace InterviewPrep.chapter01
             Console.Read();
         }
 
+        //利用HashTable 统计ASCII码
         static bool HasUniqueCharacters(String s)
         {
             if (s.Length > 256)
@@ -31,6 +32,7 @@ namespace InterviewPrep.chapter01
             return true;
         }
 
+        //Brust force O(n2)
         static bool HasUniqueCharactersSpaceEfficient(String s)
         {
             if (s.Length > 256)
@@ -40,6 +42,30 @@ namespace InterviewPrep.chapter01
                 for (int j = i + 1; j < cArray.Length; j++)
                     if (cArray[i] == cArray[j])
                         return false;
+            return true;
+        }
+
+        //tow points
+        static bool IsUniqueCharacters(string s)
+        {
+            if (!string.IsNullOrWhiteSpace(s))
+            {
+                Array.Sort(s.ToArray());
+                int len = s.Length;
+                int start = 0, end = 1;
+                while (start < len - 1 && end < len - 1)
+                {
+                    if (s[start] == s[end])
+                    {
+                        return false;
+                    }else
+                    {
+                        start++;
+                        end++;
+                    }
+                }
+            }
+
             return true;
         }
     }

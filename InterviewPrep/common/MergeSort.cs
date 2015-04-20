@@ -27,7 +27,8 @@ namespace InterviewPrep.common
                 int middle = (low + high) / 2;
                 MSort(a,low, middle);
                 MSort(a,middle + 1, high);
-                Merge(a, low,middle, high);
+                //Merge(a, low, middle, high);
+                Merge2(a, low,middle, high);
             }
         }
 
@@ -63,6 +64,37 @@ namespace InterviewPrep.common
             
         }
 
+        public static void Merge2(int[] a, int low, int middle, int high){
+            if (a == null || a.Length < 1) return;
+            if (low > high) return;
 
+            int len = a.Length;
+            var arr = new int[len];
+            for (int i = low; i <=high; i++)
+            {
+                arr[i] = a[i];
+            }
+
+            int leftP = low, rigtP = middle + 1;
+            for (int k = low; k <= high; k++)
+            {
+                if (leftP > middle)
+                {
+                    a[k] = arr[rigtP++];
+                }
+                else if (rigtP > high)
+                {
+                    a[k] = arr[leftP++];
+                }
+                else if (arr[leftP] <= arr[rigtP])
+                {
+                    a[k] = arr[leftP++];
+                }
+                else
+                {
+                    a[k] = arr[rigtP++];
+                }
+            }            
+        }
     }
 }

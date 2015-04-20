@@ -40,5 +40,36 @@ namespace InterviewPrep.chapter01
                 return s;
             return sb.ToString();
         }
+
+        //利用List<char>
+        static String Compress2(String s)
+        {
+            if (string.IsNullOrWhiteSpace(s)) return s;
+
+            var result = new List<char>();
+            int i = 0,len=s.Length;
+            int count=1;
+            while (i < len)
+            {
+                if (s[i] == s[i + 1])
+                {
+                    count++;
+                }
+                else
+                {
+                    result.Add(s[i]);
+                    result.Add(count);
+                    count = 1;
+                }
+
+                i++;
+            }
+
+            result.Add(s[i]);
+            result.Add(count);
+
+            if (result.Count > len) return s;
+            return result.ToString();
+        }
     }
 }

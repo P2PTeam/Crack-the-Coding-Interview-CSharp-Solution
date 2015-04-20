@@ -14,6 +14,7 @@ namespace InterviewPrep.chapter01
             Console.Read();
         }
 
+        //two points: from end to start
         static String ReplaceSpace(String s)
         {
             char[] a = s.ToCharArray();
@@ -40,6 +41,42 @@ namespace InterviewPrep.chapter01
                 nonSpacePointer--;
             }
             return new String(a);
+        }
+
+        static String ReplaceSpace2(String s)
+        {
+            if (string.IsNullOrWhiteSpace(s)) return s;
+            int len = s.Length;
+            int count = 0;
+            for (int i = 0; i < len; i++)
+            {
+                if (s[i] == ' ')
+                {
+                    count++;
+                }
+            }
+
+            int newLen = len + 2 * count;
+            int newEnd = newLen - 1, end = len - 1;
+            while (newEnd >= 0 && end >= 0)
+            {
+                if (s[end] != ' ')
+                {
+                    s[newEnd] = s[end];
+                    newEnd--;
+                }
+                else
+                {
+                    s[newEnd] = '0';
+                    newEnd--;
+                    s[newEnd] = '2';
+                    newEnd--;
+                    s[newEnd] = '%';
+                    newEnd--;
+                }
+
+                end--;
+            }
         }
     }
 }

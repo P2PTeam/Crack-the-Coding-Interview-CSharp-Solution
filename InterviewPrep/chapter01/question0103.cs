@@ -16,6 +16,8 @@ namespace InterviewPrep.chapter01
             Console.Read();
         }
 
+        //判断一个字符串是否是另外一个字符串的组合：
+        //HashTable: 遍历一个字符串做加法++， 然后遍历另外一个字符串做减法--
         static bool IsPermutation(String s1, String s2)
         {
             if (s1.Length != s2.Length)
