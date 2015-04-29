@@ -108,6 +108,7 @@
     <Compile Include="chapter18\question1801.cs" />
     <Compile Include="chapter18\question1802.cs" />
     <Compile Include="chapter18\question1806.cs" />
+    <Compile Include="common\BinarySearch.cs" />
     <Compile Include="common\LowestCommonAncestor .cs" />
     <Compile Include="common\MaxSubarray.cs" />
     <Compile Include="common\MergeSort.cs" />

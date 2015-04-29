@@ -10,7 +10,10 @@ namespace InterviewPrep.chapter03
     {
         public static void NotMain(String[] args)
         {
+            //MoveDisk(3, 3, 3, 1);
         }
+
+        //递归解决汉诺塔问题
         public static void MoveDisk(int n, int origin, int dest, int buffer)
         {
             if(n == 1)

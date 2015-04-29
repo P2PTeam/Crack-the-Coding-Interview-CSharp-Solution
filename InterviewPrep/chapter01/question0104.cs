@@ -46,6 +46,8 @@ namespace InterviewPrep.chapter01
         static String ReplaceSpace2(String s)
         {
             if (string.IsNullOrWhiteSpace(s)) return s;
+            s = s.Trim();
+            var arr = s.ToCharArray();
             int len = s.Length;
             int count = 0;
             for (int i = 0; i < len; i++)
@@ -60,23 +62,25 @@ namespace InterviewPrep.chapter01
             int newEnd = newLen - 1, end = len - 1;
             while (newEnd >= 0 && end >= 0)
             {
-                if (s[end] != ' ')
+                if (arr[end] != ' ')
                 {
-                    s[newEnd] = s[end];
+                    arr[newEnd] = arr[end];
                     newEnd--;
                 }
                 else
                 {
-                    s[newEnd] = '0';
+                    arr[newEnd] = '0';
                     newEnd--;
-                    s[newEnd] = '2';
+                    arr[newEnd] = '2';
                     newEnd--;
-                    s[newEnd] = '%';
+                    arr[newEnd] = '%';
                     newEnd--;
                 }
 
                 end--;
             }
+
+            return new String(arr);
         }
     }
 }

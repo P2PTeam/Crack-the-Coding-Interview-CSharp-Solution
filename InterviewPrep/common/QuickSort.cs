@@ -10,7 +10,7 @@ namespace InterviewPrep.common
     {
         public static void Main(String[] args)
         {
-            int[] a = new int[] { 1, 3, 2, 5, 3, 2, 3, 4, 5, 3, 2 };
+            int[] a = new int[] {6,6, 1, 2,5, 5, 8,8,3, 4 };
             int[] a2 = new int[a.Length];
             for (int i = 0; i < a.Length; i++)
                 a2[i] = a[i];
@@ -25,15 +25,15 @@ namespace InterviewPrep.common
 
         public static void QSort(int[] a, int left, int right)
         {
+            if (left >= right) return;
+
             int index = Parition(a, left, right);
-            if (left < index - 1) 
-                QSort(a, left, index - 1);
-            if (index < right)
-                QSort(a, index, right);
+            QSort(a, left, index - 1);
+            QSort(a, index+1, right);
         }
 
         //选择中间的元素作为哨兵，不需要最后一次交换
-        public static int Parition(int[] a,int left, int right)
+        public static int Parition(int[] a, int left, int right)
         {
             int pivot = (left + right) / 2;
 
@@ -56,28 +56,30 @@ namespace InterviewPrep.common
         //选择第一个元素作为哨兵，则最后还需要一次交换
         public static int Parition2(int[] a, int left, int right)
         {
-            //if (left >= right) return;
-            int i = left, j = right + 1;
-            while (true)
+            int key = a[left];
+            while (left<=right)
             {
-                while (a[i++] < a[left])
+                while (a[left] < key)
                 {
-                    if (i == right) break;
+                    left++;
                 }
 
-                while (a[j--] > a[left])
+                while (a[right] > key)
                 {
-                    if (j == left) break;
+                    right--;
                 }
 
-                if (i >= j) break;
-                Swap(a, i, j);
+                if (left <= right)
+                {
+                    Swap(a, left, right);
+                    left++;
+                    right--;
+                }
             }
 
-            Swap(a, left, j);
-
-            return j;
+            return left;
         }
+
         public static void Swap(int[] a, int first, int second)
         {
             int temp = a[first];

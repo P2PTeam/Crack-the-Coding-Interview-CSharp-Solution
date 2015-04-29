@@ -10,7 +10,7 @@ namespace InterviewPrep.chapter05
     {
         static void NotMain(String[] args)
         {
-            Console.WriteLine(PrintBinary(0.75));
+            Console.WriteLine(PrintBinary(0.5));
             Console.Read();
         }
 

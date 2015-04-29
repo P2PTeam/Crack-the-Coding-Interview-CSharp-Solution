@@ -10,10 +10,16 @@ namespace InterviewPrep.common
     {
         static void NotMain(String[] args)
         {
-            List<String> test = GetPermutation("abcd");
-            foreach (String s in test)
+            List<String> permutation = GetPermutation("abcd");
+            foreach (String s in permutation)
             {
                 Console.WriteLine("["+s+"]");
+            }
+
+            List<String> combination = GetCombination("abcd");
+            foreach (String s in combination)
+            {
+                Console.WriteLine("[" + s + "]");
             }
             Console.Read();
         }

@@ -11,7 +11,7 @@ namespace InterviewPrep.chapter08
 
         static void NotMain(String[] args)
         {
-            Util.PrintArray(GetPermutation("ab"));
+            Util.PrintArray(GetPermutation("abcd"));
             Console.Read();
         }
 
@@ -29,6 +29,7 @@ namespace InterviewPrep.chapter08
 
             char first = original[0];
             String remainder = original.Substring(1);
+            Console.WriteLine("remainder: " + remainder);
             List<String> result = GetPermutation(remainder);
             foreach (string word in result)
             {

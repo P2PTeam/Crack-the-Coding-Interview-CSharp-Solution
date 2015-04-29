@@ -13,6 +13,7 @@ namespace InterviewPrep.chapter02
             Node t = Node.createLinkedList(new int[] { 1, 2, 3, 4,4,2,4,1,2,4 });
             Node.printNodes(t);
             removeDuplicateNoStorage(t);
+            //removeDuplicate(t);
             Node.printNodes(t);
             Console.Read();
         }

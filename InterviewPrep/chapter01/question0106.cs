@@ -12,7 +12,7 @@ namespace InterviewPrep.chapter01
         static void NotMain(String[] args)
         {
             int[][] image = new int[][] {new int[]{1,2,3},new int[]{8,-1,4},new int[]{7,6,5}};
-            RotateImage(image);
+            RotateImage2(image);
             Util.Print2DArray(image);
 
             Console.Read();
@@ -53,6 +53,37 @@ namespace InterviewPrep.chapter01
         static int[] GetRotatedXY(int x, int y, int size)
         {
             return new int[] { size - y-1, x };
+        }
+
+        static int[][] RotateImage2(int[][] image)
+        {
+            int row = image.Length;
+            int col = image[0].Length;
+            int start = 0;
+            
+            //水平翻转
+            for (int r = 0; r < row/2; r++)
+            {
+                for (int c = 0; c < col; c++)
+                {
+                    var t = image[r][c];
+                    image[r][c] = image[row - r - 1][c];
+                    image[row - r - 1][c]=t;
+                }
+            }
+
+            //对角线翻转
+            for (int r = 0; r < row; r++)
+            {
+                for (int c = r+1; c < col; c++)
+                {
+                        var t = image[r][c];
+                        image[r][c] = image[c][r];
+                        image[c][r] = t;
+                }
+            }
+
+            return image;
         }
     }
 }

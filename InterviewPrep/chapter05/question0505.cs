@@ -21,10 +21,12 @@ namespace InterviewPrep.chapter05
         static int getDiff(int a, int b)
         {
             int c = a ^ b;
+            Console.WriteLine("c： " + Convert.ToString(c, 2));
             int count = 0;
             while (c != 0)
             {
                 c &= (c - 1);
+                Console.WriteLine("C&=(c-1) ： " + Convert.ToString(c, 2));
                 count++;
             }
             return count;

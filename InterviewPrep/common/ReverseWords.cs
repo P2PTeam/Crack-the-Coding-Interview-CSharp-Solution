@@ -49,17 +49,17 @@ namespace InterviewPrep.common
         //三次翻转
         static String ReverseWord2(String s)
         {
-            if (string.IsNullOrWhiteSpace) return s;
+            if (string.IsNullOrWhiteSpace(s)) return s;
             int len = s.Length;
             //翻转整个字符串
             ReverseString(s, 0, len - 1);
             int i = 0, j = 0;
             while (i < len - 1 && j < len - 1)
             {
-                if (result[j] == ' ')
+                if (s[j] == ' ')
                 {
                     //翻转每个单词
-                    ReverseString(result, i, j - 1);
+                    ReverseString(s, i, j - 1);
                     j++;
                     i = j;
                 }
@@ -68,18 +68,24 @@ namespace InterviewPrep.common
                     j++;
                 }
             }
+
+            return s;
         }
 
         static String ReverseString(String s,int left,int right)
         {
-            if(string.IsNullOrWhiteSpace) return s;
+            if(string.IsNullOrWhiteSpace(s)) return s;
+            s = s.Trim();
+            var arr = s.ToCharArray();
             int len = s.Length;
             while (left < right)
             {
-                var t = s[left];
-                s[left++] = s[right];
-                s[right--] = t;
+                var t = arr[left];
+                arr[left++] = arr[right];
+                arr[right--] = t;
             }
+
+            return new String(arr);
         }
     }
 }

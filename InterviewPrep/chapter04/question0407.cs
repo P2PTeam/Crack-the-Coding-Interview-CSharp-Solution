@@ -25,6 +25,33 @@ namespace InterviewPrep.chapter04
                 return left;
             return root;
         }
+
+        public Node CommonAnce2(Node root, Node first, Node second)
+        {
+            if (root == null)
+                return null;
+           
+            //swap first and second, keep first<second
+            if(first.data > second.data){
+                var t=first;
+                first=second;
+                second=t;
+            }            
+
+            //search in root.left
+            if (first.data < root.data && second.data < root.data)
+            {
+                return CommonAnce2(root.left, first, second);
+            }
+
+            //search in root.right
+            if (first.data > root.data && second.data > root.data)
+            {
+                return CommonAnce2(root.right, first, second);
+            }
+
+            return root;
+        }
     }
 
 }
