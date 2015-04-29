@@ -14,10 +14,10 @@ namespace InterviewPrep.chapter04
                 return null;
             int middle = (start + end) / 2;
             Node mNode = new Node(array[middle]);
-            Node left = CreateMinBST(array, start, middle - 1);
-            Node right = CreateMinBST(array, middle + 1, end);
-            mNode.left = left;
-            mNode.right = right;
+            mNode.left = CreateMinBST(array, start, middle - 1);
+            mNode.right = CreateMinBST(array, middle + 1, end);
+            //mNode.left = left;
+            //mNode.right = right;
             return mNode;
         }
     }

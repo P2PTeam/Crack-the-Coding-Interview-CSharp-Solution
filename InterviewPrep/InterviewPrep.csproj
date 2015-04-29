@@ -113,6 +113,7 @@
     <Compile Include="common\MaxSubarray.cs" />
     <Compile Include="common\MergeSort.cs" />
     <Compile Include="common\PriorityQueue.cs" />
+    <Compile Include="common\QuickSort002.cs" />
     <Compile Include="common\QuickSort.cs" />
     <Compile Include="common\ReverseWords.cs" />
     <Compile Include="common\CombinationPermutation.cs" />

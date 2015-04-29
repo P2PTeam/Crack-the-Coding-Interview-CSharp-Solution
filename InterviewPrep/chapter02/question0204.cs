@@ -10,34 +10,43 @@ namespace InterviewPrep.chapter02
     {
         static void NotMain(String[] args)
         {
-            Node l = Node.createLinkedList(new int[] { 3, 1, 2, 4, 5, 9, 7, 8, 6 });
-            Node.printNodes(partition(9, l));
+            Node l = Node.createLinkedList(new int[] { 3, 1, 2, 4, 5, 6,9, 7, 8, 6 });
+            Node.printNodes(partition(6, l));
             Console.Read();
         }
 
+        //n是链表有重复且是最后一个元素
         static Node partition(int n, Node head)
         {
             Node pointer = head;
             Node sHead = new Node(-1);
             Node bHead = new Node(-1);
+            //value=n的元素
+            Node midHead = new Node(-1);
             Node sPointer = sHead;
             Node bPointer = bHead;
+            Node midPointer = midHead;
             while (pointer != null)
             {
-                if (pointer.data >= n)
+                if (pointer.data < n)
+                {
+                    sPointer.next = pointer;
+                    sPointer = sPointer.next;
+                }else if(pointer.data==n){
+                    midPointer.next = pointer;
+                    midPointer = midPointer.next;
+                }
+                else
                 {
                     bPointer.next = pointer;
                     bPointer = bPointer.next;
                 }
-                else
-                {
-                    sPointer.next = pointer;
-                    sPointer = sPointer.next;
-                }
+
                 pointer = pointer.next;
             }
             bPointer.next = null;//Important!
-            sPointer.next = bHead.next;
+            sPointer.next = midHead.next;
+            midPointer.next= bHead.next;
             return sHead.next;
         }
 

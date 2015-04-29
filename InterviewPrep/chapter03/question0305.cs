@@ -23,6 +23,7 @@ namespace InterviewPrep.chapter03
             q.Dequeue();
             q.Enqueue(6);
             q.Dequeue();
+            q.Dequeue();
             Console.Read();
         }
     }

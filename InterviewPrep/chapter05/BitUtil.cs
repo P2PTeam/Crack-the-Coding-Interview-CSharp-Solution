@@ -10,9 +10,14 @@ namespace InterviewPrep.chapter05
     {
         static void NotMain(String[] args)
         {
-            int n = 1;
+            int n = 8;
             Console.WriteLine(Convert.ToString(n, 2));
-            Console.WriteLine(GetBit(n, 0));
+            Console.WriteLine(GetBit(n, 3));
+            PrintNumBinary(9);
+            var bits = Convert.ToString(9, 2);            
+            Console.WriteLine(ToInt(bits));
+            var bits2 = ClearBit(9, 3);
+            Console.Write("bits2: " + bits2.ToString());
             Console.Read();
         }
 

@@ -43,8 +43,6 @@ namespace InterviewPrep.chapter02
             return n;
         }
 
-
-
         static Node addListsReverse(Node n1, Node n2)
         {
             int length1 = 0;
@@ -93,8 +91,6 @@ namespace InterviewPrep.chapter02
             current.next = wrapper.n;
             return new NodeWrapper(carry, current);
         }
-
-
 
         static Node pad(int r1, int r2, Node n1, Node n2)
         {
