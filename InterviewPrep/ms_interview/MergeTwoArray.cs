@@ -14,7 +14,7 @@ namespace InterviewPrep.ms_interview
    */
   class MergeTwoArray
   {
-    static void Main(string[] args)
+    static void NotMain(string[] args)
     {
       var A = new int[] { 1,3,5,7 };
       var B = new int[7];

@@ -10,55 +10,82 @@ namespace InterviewPrep.common
     {
         static void NotMain(String[] args)
         {
-            List<String> permutation = GetPermutation("abcd");
-            foreach (String s in permutation)
+            //List<String> permutation = GetPermutation("abcd");
+          var permutation = Permutation("abcd");
+            foreach (var s in permutation)
             {
-                Console.WriteLine("["+s+"]");
+               
+                Console.WriteLine("["+new string(s.ToArray())+"]");
             }
-
-            List<String> combination = GetCombination("abcd");
-            foreach (String s in combination)
+          
+            //If n = 4 and k = 2, a solution is:
+            //[[2,4],[3,4],[2,3],[1,2],[1,3],[1,4]]
+            var combination = GetCombination("dcab",2);
+            foreach (var s in combination)
             {
-                Console.WriteLine("[" + s + "]");
+                Console.WriteLine("[" + new string(s.ToArray()) + "]");
             }
+           
             Console.Read();
         }
 
-        static List<String> GetCombination(String s)
+        public static List<List<char>> Permutation(string s)
         {
-            List<String> newList = new List<String>();
-            if (s.Length <= 1)
-            {
-                newList.Add(s);
-                return newList;
-            }
-            List<String> sub = GetCombination(s.Substring(1, s.Length - 1));
-            foreach (String ss in sub)
-            {
-                for (int i = 0; i < ss.Length + 1; i++)
-                {
-                    String next = ss.Substring(0, i) + s[0] + ss.Substring(i, ss.Length - i);
-                    newList.Add(next);
-                }
-            }
-            return newList;
+          var result = new List<List<char>>();
+          if (string.IsNullOrWhiteSpace(s)) return result;
+
+          Helper(result, new List<char>(), s.ToCharArray());
+
+          return result;
         }
 
-        static List<String> GetPermutation(String s)
+        private static void Helper(List<List<char>> result, List<char> p, char[] s)
         {
-            List<String> result = new List<String>();
-            if (s.Length == 0)
+          if (p.Count == s.Length)
+          {
+            result.Add(new List<char>(p));
+            return;
+          }
+
+          for (int i = 0; i < s.Length; i++)
+          {
+            if (p.Contains(s[i]))
             {
-                result.Add(s);
-                return result;
+              continue;
             }
-            List<String> last = GetPermutation(s.Substring(1, s.Length - 1));
-            foreach (String ss in last)
-            {
-                result.Add(s[0] + ss);
-                result.Add(ss);
-            }
-            return result;
+
+            p.Add(s[i]);
+            Helper(result, p, s);
+            p.RemoveAt(p.Count - 1);
+          }
         }
+
+
+        public static List<List<char>> GetCombination(String s, int k)
+        {
+          var result = new List<List<char>>();
+          if (string.IsNullOrWhiteSpace(s)) return result;
+
+          CombinationHelper(result, new List<char>(), s.ToCharArray(),k,0);
+
+          return result;
+        }
+
+        private static void CombinationHelper(List<List<char>> result, List<char> p, char[] s, int k, int idx)
+        {
+          if (p.Count == k)
+          {
+            result.Add(new List<char>(p));
+            return;
+          }
+
+          for (int i = idx; i < s.Length; i++)
+          {
+            p.Add(s[i]);
+            CombinationHelper(result, p, s,k,i+1);
+            p.RemoveAt(p.Count - 1);
+          }
+        }
+       
     }
 }

@@ -11,10 +11,44 @@ namespace InterviewPrep.common
         public static void NotMain(String[] args)
         {
             int[] a = new int[] { 1, 1, 2, 2,5, 8,8, 13, 14 };
-            int index = BiSearch(a, 5);
+            int index = BinarySearcher(a, 5);
           
             Console.WriteLine("Completed, index is "+index);
             Console.Read();
+        }
+
+        public static int BinarySearcher(int[] A, int target)
+        {
+          if (A == null || A.Length == 0) return 0;
+
+          int start = 0, end = A.Length - 1;
+          int mid;
+          while (start + 1 < end)
+          {
+            mid = start + (end - start) / 2;
+
+            if (A[mid] == target)
+            {
+              end = mid;
+            }
+            else if(A[mid]<target)
+            {
+              start = mid;
+            }
+            else
+            {
+              end = mid;
+            }
+          }
+
+          if (A[start] == target)
+          {
+            return start;
+          }
+          else
+          {
+            return end;
+          }
         }
 
         public static int BiSearch(int[] arr, int target)
