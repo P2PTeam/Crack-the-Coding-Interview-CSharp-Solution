@@ -119,6 +119,7 @@
     <Compile Include="common\CombinationPermutation.cs" />
     <Compile Include="ms_interview\ContractTwoStrings.cs" />
     <Compile Include="ms_interview\MergeTwoArray.cs" />
+    <Compile Include="ms_interview\ReverseNumber.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UdemyCode\LinkedListHasCycle.cs" />
     <Compile Include="UdemyCode\ReveseLinkedList.cs" />
