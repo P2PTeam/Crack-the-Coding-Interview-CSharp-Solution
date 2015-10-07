@@ -10,7 +10,7 @@ namespace InterviewPrep.chapter01
     {
         static void NotMain(string[] args)
         {
-            Console.WriteLine(HasUniqueCharactersSpaceEfficient("haha"));
+          Console.WriteLine(IsUniqueCharacters("haha"));
             Console.WriteLine(HasUniqueCharactersSpaceEfficient("helo wd"));
 
             Console.Read();

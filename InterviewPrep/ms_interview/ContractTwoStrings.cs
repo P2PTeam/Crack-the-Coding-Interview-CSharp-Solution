@@ -13,11 +13,38 @@ namespace InterviewPrep.ms_interview
   {
     static void NotMain(string[] args)
     {
-      var s1 = "abcdef";
-      var s2 = "efghjik";
-      var result = MergeWithoutDup2(s1, s2);
+      var s1 = @"abcd\ef\";
+      var s2 = @"\ef\ghjik";
+      var result = MergeWithoutDup(s1, s2);
       Console.WriteLine("The result: " + result);
       Console.Read();
+    }
+
+    // Merge two strings
+    public static string MergeWithoutDup(string s1, string s2)
+    {
+      if (String.IsNullOrEmpty(s1) && String.IsNullOrEmpty(s2)) return string.Empty;
+      if (String.IsNullOrEmpty(s1)) return s2;
+      if (String.IsNullOrEmpty(s2)) return s1;
+
+      var sb = new StringBuilder(s1);
+      int len = s2.Length;
+      while (len > 0)
+      {
+        var comm = s2.Substring(0, len);
+        if (s1.EndsWith(comm))
+        {
+          sb.Append(s2.Substring(len));
+          return sb.ToString();
+        }
+
+        len--;        
+      }
+
+      //there is no overlap
+      sb.Append(s2);
+
+      return sb.ToString();
     }
 
     //use StringBuilder

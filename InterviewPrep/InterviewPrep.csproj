@@ -117,6 +117,9 @@
     <Compile Include="common\QuickSort.cs" />
     <Compile Include="common\ReverseWords.cs" />
     <Compile Include="common\CombinationPermutation.cs" />
+    <Compile Include="ms_interview\CalClockAngle.cs" />
+    <Compile Include="ms_interview\BracketBalances.cs" />
+    <Compile Include="ms_interview\CompareVersionNumber.cs" />
     <Compile Include="ms_interview\ContractTwoStrings.cs" />
     <Compile Include="ms_interview\MergeTwoArray.cs" />
     <Compile Include="ms_interview\ReverseNumber.cs" />
